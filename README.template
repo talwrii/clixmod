@@ -1,6 +1,6 @@
 # clixmod
 
-** Status: Basic functionality in the process of being implemented. Author has used the for real work **
+**Status: Basic functionality in the process of being implemented. Author has used the for real work**
 
 Modify XML and HTML documents using [XPATHs](https://www.w3.org/TR/1999/REC-xpath-19991116/) from the command line.
 Analogous to `s//` in the command-line tool sed.
@@ -14,21 +14,24 @@ Requires [Python3](https://www.python.org/download/releases/3.0/) but can co-exi
 
 # Motivation
 
-* Hopefully easier to use that XSLT
-* Arised from wanting to fix up HTML documentaiton.
+* Hopefully easier to use than XSLT
+* I made this tool when from wanting to extract information from HTMl documentation.
 
 # Examples
 
-```
-#  A short cut for the above (children exists by default)
+```sh
+# Replace all h2 elements with h1 elements
 clixmod //h2 '<h1>{{content}}</h1>'
+
+# Delete h2 elements
+clixmod //h2 ''
 
 # Turn all level-2 headers to level-1 headers
 # clixmod //h2 children=descendant::* '<h1>{{children}}</h1>' # Not implemented
 
 # Not implemented
 # Show all the class attributes
-# clixmod -f //@class  # Not implementes
+# clixmod -f //@class  # Not implemented
 
 # Delete all the class attributes
 # clixmod //@class '' # Not implemented

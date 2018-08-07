@@ -35,6 +35,8 @@ def main():
     if options.stdout:
         print(output, end='')
     else:
+
+        os.chmod('README.md', 0600)
         with open('README.md', 'w') as out_stream:
             out_stream.write(output)
 

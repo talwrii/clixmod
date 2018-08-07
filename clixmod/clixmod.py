@@ -5,11 +5,11 @@ import lxml.etree
 from lxml.etree import tostring
 
 def build_parser():
-    parser = argparse.ArgumentParser(description='Modify xml or html documents')
-    parser.add_argument('xpath', type=str, help='Xpath to modify')
-    parser.add_argument('selection_xpath', nargs='*', type=str, help='Relative xpath to select. Use name=XPATH for named groups')
-    parser.add_argument('replacement', type=str, help='XML to replace XPATH with {} for entire match, {1}... for selection XPATHs')
-    parser.add_argument('--filter', '-f', action='store_true', help='Show matches')
+    parser = argparse.ArgumentParser(prog='clixmod', description='Modify xml or html documents')
+    parser.add_argument('xpath', type=str, help='XPATH to modify', metavar='XPATH')
+    parser.add_argument('selection_xpath', nargs='*', type=str, help='relative XPATH to select. Use name=XPATH for named groups')
+    parser.add_argument('replacement', type=str, help='XML to replace XPATH with. {} for entire match, {1}... for selection XPATHs')
+    parser.add_argument('--filter', '-f', action='store_true', help='Show matches rather than output text')
     return parser
 
 def main():
@@ -21,7 +21,6 @@ def main():
 def run(data, args):
     args = build_parser().parse_args(args)
     tree = lxml.etree.HTML(data)
-
 
     matches = tree.xpath(args.xpath)
     if args.filter:
