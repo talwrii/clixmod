@@ -7,7 +7,7 @@ Modify XML and HTML documents using [XPATHs](https://www.w3.org/TR/1999/REC-xpat
 Analogous to `s//` in the command-line tool sed.
 A companion utility to [clixpath](https://github.com/talwrii/clixpath).
 
-Requires [Python3](https://www.python.org/download/releases/3.0/) but can co-exist with python2.
+Requires [Python3](https://www.python.org/download/releases/3.0/) but can co-exist with Python2.
 
 # See also and flagrant advertising
 
@@ -16,7 +16,10 @@ Requires [Python3](https://www.python.org/download/releases/3.0/) but can co-exi
 # Motivation
 
 * Hopefully easier to use than XSLT
-* I made this tool when from wanting to extract information from HTMl documentation.
+* Delete element from HTML
+* Change element types
+* Remove attributes
+* Empty the contents of elements into their parents
 
 # Examples
 
