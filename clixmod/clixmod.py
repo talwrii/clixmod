@@ -38,12 +38,15 @@ def run(data, args):
         for m in matches:
             children = m.xpath('node()')
             child_string = ''.join(map(clixmod_tostring, children))
-            output = args.replacement.format(content=child_string)
-            try:
-                new = lxml.etree.fromstring(output)
-            except:
-                new = output
-            replace_element(m, new)
+            if args.replacement:
+                output = args.replacement.format(content=child_string)
+                try:
+                    new = lxml.etree.fromstring(output)
+                except:
+                    new = output
+                replace_element(m, new)
+            else:
+                remove(m)
         yield clixmod_tostring(tree)
 
 def clixmod_tostring(x):
