@@ -21,7 +21,6 @@ def main():
     for line in run(data, sys.argv[1:]):
         print(line)
 
-
 def run(data, args):
     args = build_parser().parse_args(args)
 
@@ -69,7 +68,6 @@ def replace_element(element, new_element):
 def remove(element):
     parent = element.getparent()
     text_index = parent.index(element) - 1
-    print('text_index', text_index)
     if element.tail:
         if text_index == -1:
             parent.text = (parent.text or '') + element.tail
