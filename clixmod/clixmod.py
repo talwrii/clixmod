@@ -3,9 +3,13 @@ import argparse
 import sys
 import lxml.etree
 from lxml.etree import tostring
+import logging
+
+LOGGER = logging.getLogger('')
 
 def build_parser():
     parser = argparse.ArgumentParser(prog='clixmod', description='Modify xml or html documents')
+    parser.add_argument('--debug', action='store_true', help='Include debug output (to stderr)')
     parser.add_argument('xpath', type=str, help='XPATH to modify', metavar='XPATH')
     parser.add_argument('selection_xpath', nargs='*', type=str, help='relative XPATH to select. Use name=XPATH for named groups')
     parser.add_argument('replacement', type=str, help='XML to replace XPATH with. {} for entire match, {1}... for selection XPATHs')
@@ -20,6 +24,10 @@ def main():
 
 def run(data, args):
     args = build_parser().parse_args(args)
+
+    if args.debug:
+        logging.basicConfig(level=logging.DEBUG)
+
     tree = lxml.etree.HTML(data)
 
     matches = tree.xpath(args.xpath)
