@@ -9,9 +9,11 @@ A companion utility to [clixpath](https://github.com/talwrii/clixpath).
 
 Requires [Python3](https://www.python.org/download/releases/3.0/) but can co-exist with Python2.
 
-# See also and flagrant advertising
+# See also and flagrant self-promotion
 
 * [clixpath](https://github.com/talwrii/clixpath) is a tool by the author to *extract* information from XML and HTML documents.
+
+The author also maintains a list of potentially interesting tools they have written [here](https://github.com/talwrii/tools).
 
 # Motivation
 
